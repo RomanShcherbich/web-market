@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+        <title>Getting Started: Serving Web Content</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Главная страница</title>
+    </head>
+<body>
+<h1>Главная</h1>
+<ul class="menu">
+    <li><a href="/index">Главная</a></li>
+    <li><a href="catalog.html">Каталог</a></li>
+    <li><a href="contacts.html">Контакты</a></li>
+</ul>
+<hr>
+<h3>Добро пожаловать в магазин "Byte store"!</h3>
+<p>Современные технологии достигли такого уровня, что понимание сути ресурсосберегающих технологий создаёт предпосылки
+    для дальнейших направлений развития. Внезапно, представители современных социальных резервов, которые представляют
+    собой яркий пример континентально-европейского типа политической культуры, будут функционально разнесены на
+    независимые элементы. Для современного мира постоянный количественный рост и&nbsp;сфера нашей активности не&nbsp;
+    даёт нам
+    иного выбора, кроме определения стандартных подходов. Повседневная практика показывает, что дальнейшее развитие
+    различных форм деятельности выявляет срочную потребность инновационных методов управления процессами.
+    Противоположная точка зрения подразумевает, что некоторые особенности внутренней политики, инициированные
+    исключительно синтетически, превращены в&nbsp;посмешище, хотя само их&nbsp;существование приносит несомненную пользу
+    обществу!
+    Идейные соображения высшего порядка, а&nbsp;также курс на&nbsp;социально-ориентированный национальный проект влечет
+    за&nbsp;собой
+    процесс внедрения и&nbsp;модернизации прогресса профессионального сообщества.</p>
+<a href="/feedback"><input type="submit" value="Add feedback"></a>
+<h4>Отзывы</h4>
+<div th:switch="${feedbacks}">
+    <h2 th:case="null">Нет отзывов</h2>
+    <div th:case="*">
+        <table th:each="feedback : ${feedbacks}">
+            <tbody>
+            <tr><b th:text="${feedback.name}"></b></tr>
+            <tr><td th:text="${feedback.feedbackText}"></td></tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<!--
+<h4>CRUD FORM</h4>
+<div th:switch="${users}">
+    <h2 th:case="null">No users yet!</h2>
+    <div th:case="*">
+        <h2>Users</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Update</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="user : ${users}">
+                <td th:text="${user.name}"></td>
+                <td th:text="${user.email}"></td>
+                <td><a th:href="@{/edit/{id}(id=${user.id})}"><input type="submit" value="Edit"></a>
+                    <a th:href="@{/delete/{id}(id=${user.id})}"><input type="submit" value="Delete"></a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/signup"><input type="submit" value="Add a new user"></a></p>
+</div>
+-->
+
+<!--lorem команда для генерации текста.-->
+
+</body>
+<footer>
+    <hr>
+    Все права защищены &copy;&nbsp;2020
+    <a href="https://geekbrains.ru/study_groups/11428/videos/66710" target="_blank">Учебный портал</a>
+</footer>
+</html>

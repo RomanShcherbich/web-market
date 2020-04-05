@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Add feedback</title>
+</head>
+<body>
+<h1>Оставьте отзыв</h1>
+<ul class="menu">
+    <li><a href="/index">Главная</a></li>
+    <li><a href="catalog.html">Каталог</a></li>
+    <li><a href="contacts.html">Контакты</a></li>
+</ul>
+<hr>
+<form action="#" th:action="@{/addfeedback}" th:object="${feedback}" method="post">
+    <table>
+        <tr>
+            <td>
+
+                <label for="name">Name</label>
+                <input type="text" th:field="*{name}" id="name" placeholder="Name">
+            </td>
+            <td>
+                <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="email">Email</label>
+                <input type="text" th:field="*{email}" id="email" placeholder="Email">
+            </td>
+            <td>
+                <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+            </td>
+        </tr>
+    </table>
+    <label for="feedbackText">FeedbackText</label>
+    <br><input type="text" th:field="*{feedbackText}" id="feedbackText" placeholder="FeedbackText">
+    <span th:if="${#fields.hasErrors('feedbackText')}" th:errors="*{feedbackText}"></span>
+
+    <br><input type="submit" value="Add Feedback">
+</form>
+</body>
+<footer>
+    <hr>
+    Все права защищены &copy;&nbsp;2020
+    <a href="https://geekbrains.ru/study_groups/11428/videos/66710" target="_blank">Учебный портал</a>
+</footer>
+</html>
